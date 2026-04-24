@@ -1,7 +1,7 @@
-Los Angeles Lakers Net Rating Forecasting (2025–26 Season)
+---- Los Angeles Lakers Net Rating Forecasting (2025–26 Season) ----
+
 This project applies time series analysis to forecast the Los Angeles Lakers’ rolling net rating for the final stretch of the 2025–2026 NBA season. Using ARIMA modeling, rolling‑origin cross‑validation, and game‑level advanced metrics, the analysis estimates short‑term performance and provides insight into likely win–loss outcomes and playoff seeding.
 
-🏀 Project Overview
 The goal of this project is to:
 
 Compute offensive rating (ORtg), defensive rating (DRtg), and net rating (NRtg) from raw game logs
