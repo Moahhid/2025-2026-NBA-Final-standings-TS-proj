@@ -32,94 +32,94 @@ Each sheet in the Excel file corresponds to one NBA team. This project focuses o
 1. Feature Engineering
 Using Dean Oliver’s formulas (Basketball on Paper, 2004):
 
- -Possessions
+- Possessions
 
 - Offensive Rating (ORtg)
 
-Defensive Rating (DRtg)
+- Defensive Rating (DRtg)
 
-Net Rating (NRtg)
+- Net Rating (NRtg)
 
-A 3‑game rolling average is applied to reduce noise and capture underlying performance trends.
+A _3‑game rolling average_ is applied to reduce noise and capture underlying performance trends.
 
 2. Stationarity & Model Identification
-Augmented Dickey–Fuller (ADF) tests
+- Augmented Dickey–Fuller (ADF) tests
 
-First differencing
+- First differencing
 
-ACF/PACF analysis
+- ACF/PACF analysis
 
-The differenced series shows stationarity, with PACF suggesting an AR(1) structure.
+- The differenced series shows stationarity, with PACF suggesting an AR(1) structure.
 
 3. Modeling
-Two ARIMA models were compared:
+- Two ARIMA models were compared:
 
-ARIMA(1,1,0)
+- ARIMA(1,1,0)
 
-ARIMA(2,1,0)
+- ARIMA(2,1,0) (overfit to check if parsimonious model sufficies)
 
 Model selection was based on:
 
-AIC / BIC
+- AIC / BIC
 
-Parameter significance
+- Parameter significance
 
-Residual diagnostics
+- Residual diagnostics
 
-Ljung–Box test
+- Ljung–Box test
 
-ARIMA(1,1,0) was selected as the final model.
+_ARIMA(1,1,0)_ was selected as the final model.
 
 4. Cross‑Validation
 Rolling‑origin cross‑validation was performed using:
 
-Initial window: 40 games
+- Initial window: 40 games
 
-Forecast horizon: 1 game
+- Forecast horizon: 1 game
 
-Framework: tsibble + fable
+- Framework: tsibble + fable
 
-This evaluates true out‑of‑sample predictive performance.
+This evaluates _true out‑of‑sample predictive performance._
 
 5. Forecasting
-A 7‑game ahead forecast was generated with 95% prediction intervals.
+- A 7‑game ahead forecast was generated with 95% prediction intervals.
 The forecast exhibits:
 
-A flat mean trajectory (typical for ARIMA on volatile data)
+- A flat mean trajectory (typical for ARIMA on volatile data)
 
-Wide intervals reflecting uncertainty in NBA outcomes
+- Wide intervals reflecting uncertainty in NBA outcomes
 
-📈 Results Summary
-The ARIMA(1,1,0) model captures the main structure of the rolling net rating series.
+**Results Summary**
+- The ARIMA(1,1,0) model captures the main structure of the rolling net rating series.
 
-Forecasted net ratings for the next 7 games remain near zero with wide uncertainty bands.
+- Forecasted net ratings for the next 7 games remain near zero with wide uncertainty bands.
 
-Opponent average net ratings were compared to forecast intervals to estimate likely outcomes.
+- Opponent average net ratings were compared to forecast intervals to estimate likely outcomes.
 
-The projected final record is 52–30, placing the Lakers 4th in the Western Conference.
+- The projected final record is 52–30, placing the Lakers 4th in the Western Conference.
 
-⚠️ Limitations
-Time series models assume the future resembles the past — a challenge in sports analytics due to:
+**Limitations**
+Time series models assume the future resembles the past; a challenge in sports analytics due to:
 
-Injuries
+- Injuries
 
-Roster changes
+- Roster changes
 
-Home/away effects
+- Home/away effects
 
-Opponent strength
+- Opponent strength
 
-Schedule density
+- Schedule density
 
-These factors are not explicitly modeled in ARIMA.
+These factors are _<u>not</u> explicitly modeled in ARIMA._
 
-🔮 Extensions
+**Extensions**
 Future improvements could include:
 
-ARIMAX / SARIMA with covariates (home/away, injuries, opponent strength)
+- ARIMAX / SARIMA with covariates (home/away, injuries, opponent strength, and data from previous years)
 
-Logistic regression for win–loss prediction
+- Logistic regression for win–loss prediction
 
-Bayesian hierarchical models for team‑level uncertainty
+- Bayesian hierarchical models for team‑level uncertainty
 
-Machine learning models (XGBoost, LSTM) for richer feature sets
+- Machine learning models (XGBoost, LSTM) for richer feature sets
