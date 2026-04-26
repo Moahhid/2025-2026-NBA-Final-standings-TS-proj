@@ -28,13 +28,13 @@ Team Page → Game Log → Export as Excel
 
 Each sheet in the Excel file corresponds to one NBA team. This project focuses on the Los Angeles Lakers (LAL) sheet.
 
-🧮 Methodology
+**Methodology**
 1. Feature Engineering
 Using Dean Oliver’s formulas (Basketball on Paper, 2004):
 
-Possessions
+ -Possessions
 
-Offensive Rating (ORtg)
+- Offensive Rating (ORtg)
 
 Defensive Rating (DRtg)
 
